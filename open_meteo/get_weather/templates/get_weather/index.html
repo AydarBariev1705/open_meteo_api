@@ -9,79 +9,74 @@
       {% endblock %}
     </title>
     <style>
-    body {
-        font-family: Arial, sans-serif;
-        line-height: 1.6;
-        margin: 0;
-        padding: 0;
-        display: flex;
-        flex-direction: column;
-        min-height: 100vh;
-    }
-    .wrapper {
-        flex: 1;
-        display: flex;
-        flex-direction: column;
+
+    header {
+        background-color: #007bff;
+        color: #fff;
+        text-align: center;
+        padding: 20px 0;
     }
 
-header {
-    background-color: #007bff;
-    color: #fff;
-    text-align: center;
-    padding: 10px 0;
-}
 
-h1, h2 {
-    margin-bottom: 10px;
-}
+    .weather-form {
+        background-color: #f8f9fa;
+        padding: 30px;
+        margin: 20px auto;
+        max-width: 400px;
+        border-radius: 10px;
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    }
 
-.weather-form {
-    background-color: #fff;
-    padding: 20px;
-    margin: 20px auto;
-    max-width: 400px;
-    border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
+    form {
+        margin-bottom: 0;
+    }
 
-form {
-    margin-bottom: 0;
-}
+    button {
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        padding: 12px 24px;
+        cursor: pointer;
+        border-radius: 5px;
+        transition: background-color 0.3s ease;
+    }
 
-button {
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    padding: 10px 20px;
-    cursor: pointer;
-    border-radius: 5px;
-}
+    button:hover {
+        background-color: #0056b3; /* Darker shade of blue */
+    }
 
-button:hover {
-    background-color: #0056b3;
-}
 
-main {
-    background-color: #fff;
-    padding: 20px;
-    margin: 20px auto;
-    max-width: 600px;
-    border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
+    main {
+        background-color: #fff;
+        padding: 30px;
+        margin: 20px auto;
+        max-width: 600px;
+        border-radius: 10px;
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    }
 
-p {
-    margin: 10px 0;
-}
-        footer {
-    margin-top: auto;
-    background-color: #007bff;
-    color: #fff;
-    text-align: right;
-    padding: 10px 10px;
-}
 
-    </style>
+    footer {
+        background-color: #007bff;
+        color: #fff;
+        text-align: center;
+        padding: 20px 0;
+    }
+
+    footer div {
+        margin-bottom: 10px;
+    }
+
+    footer a {
+        color: #fff;
+        text-decoration: none;
+        transition: color 0.3s ease;
+    }
+
+    footer a:hover {
+        color: #f0f0f0; /* Lighter shade on hover */
+    }
+</style>
 </head>
 <header>
     <h1>Узнай погоду в любом городе!</h1>
@@ -110,18 +105,21 @@ p {
   {% endblock %}
 <div>
 </div>
-<a href="https://0.0.0.0:8000/api">История запросов</a>
+
 </body>
 
 <footer>
         <div>
-            <p><a href="https://vk.com/a_bariev">VK</a> </p>
+            <p> <a href="http://0.0.0.0:8000/api/" style="text-align: center;">История запросов</a></p>
         </div>
         <div>
-            <a href="https://t.me/AydarBariev">TG</a>
+            <p><a href="https://t.me/AydarBariev">TG</a></p>
         </div>
         <div>
-            <a href="https://github.com/AydarBariev1705">Github</a>
+            <p><a href="https://github.com/AydarBariev1705">Github</a></p>
+        </div>
+        <div>
+           <p><a href="https://vk.com/a_bariev">VK</a> </p>
         </div>
     </footer>
 

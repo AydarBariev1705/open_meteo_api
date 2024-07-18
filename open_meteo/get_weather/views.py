@@ -31,7 +31,10 @@ def weather_view(request: HttpRequest):
             weather_data = get_weather(geocode, city)
             if weather_data:
                 add_view(city)
-                request.session['last_viewed_city'] = {'geocode': geocode, 'city': city}
+                request.session['last_viewed_city'] = {
+                    'geocode': geocode,
+                    'city': city
+                }
 
     last_viewed_city = request.session.get('last_viewed_city')
     if last_viewed_city:
@@ -56,7 +59,10 @@ class CityViewSet(ModelViewSet):
         DjangoFilterBackend,
         OrderingFilter,
     ]
-    search_fields = ['name', 'views', ]
+    search_fields = [
+        'name',
+        'views',
+    ]
     filterset_fields = [
         'name',
         'views',
