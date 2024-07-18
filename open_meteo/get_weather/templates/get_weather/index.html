@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        {% block title %}
+      Погода
+      {% endblock %}
+    </title>
+    <style>
+    body {
+        font-family: Arial, sans-serif;
+        line-height: 1.6;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+    }
+    .wrapper {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+    }
+
+header {
+    background-color: #007bff;
+    color: #fff;
+    text-align: center;
+    padding: 10px 0;
+}
+
+h1, h2 {
+    margin-bottom: 10px;
+}
+
+.weather-form {
+    background-color: #fff;
+    padding: 20px;
+    margin: 20px auto;
+    max-width: 400px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+form {
+    margin-bottom: 0;
+}
+
+button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+main {
+    background-color: #fff;
+    padding: 20px;
+    margin: 20px auto;
+    max-width: 600px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+p {
+    margin: 10px 0;
+}
+        footer {
+    margin-top: auto;
+    background-color: #007bff;
+    color: #fff;
+    text-align: right;
+    padding: 10px 10px;
+}
+
+    </style>
+</head>
+<header>
+    <h1>Узнай погоду в любом городе!</h1>
+</header>
+
+<body>
+{% block body %}
+    <section class="weather-form">
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Узнать погоду</button>
+    </form>
+    </section>
+    <main>
+    {% if weather_data %}
+        <h2>Город: {{ weather_data.city }}</h2>
+        <p>Температура: {{ weather_data.temperature }}°C</p>
+        <p>Скорость ветра: {{ weather_data.windspeed }} км/ч</p>
+        <p>Широта: {{ weather_data.latitude }}</p>
+        <p>Долгота: {{ weather_data.longitude }}</p>
+    {% elif error %}
+        <p>{{ error }}</p>
+    {% endif %}
+    </main>
+  {% endblock %}
+</body>
+
+<footer>
+        <div>
+            <a href="https://vk.com/a_bariev">VK</a>
+        </div>
+        <div>
+            <a href="https://t.me/AydarBariev">TG</a>
+        </div>
+        <div>
+            <a href="https://github.com/AydarBariev1705">Github</a>
+        </div>
+    </footer>
+
+</html>
