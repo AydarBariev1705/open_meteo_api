@@ -3,6 +3,7 @@ import requests
 
 
 def add_view(city_name: str):
+    """Функция для записи города в БД и для увеличения просмотров"""
     city, created = City.objects.get_or_create(
         name=city_name,
     )
@@ -11,6 +12,7 @@ def add_view(city_name: str):
 
 
 def get_weather(geocode: tuple, city_name: str):
+    """Функция для получения погоды по широте и долготе"""
     latitude = geocode[0]
     longitude = geocode[1]
     current_url = 'https://api.open-meteo.com/v1/forecast'
@@ -38,6 +40,7 @@ def get_weather(geocode: tuple, city_name: str):
 
 
 def get_geocode(city_name: str):
+    """Функция для получения широты и долготы по названию города"""
     limit = 1
     geocode_url = f'https://nominatim.openstreetmap.org/search?q={city_name}&format=json&limit={limit}'
     response = requests.get(geocode_url)

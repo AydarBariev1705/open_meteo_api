@@ -12,6 +12,7 @@ from .utils import get_weather, get_geocode, add_view
 
 
 def weather_view(request: HttpRequest):
+    """Функция для получения погоды """
     form = CityForm()
     if request.method == 'POST':
         form = CityForm(request.POST)
@@ -52,6 +53,7 @@ def weather_view(request: HttpRequest):
 
 
 class CityViewSet(ModelViewSet):
+    """Апи для отображения истории запросов """
     queryset = City.objects.all()
     serializer_class = CitySerializer
     filter_backends = [
