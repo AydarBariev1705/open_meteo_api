@@ -50,4 +50,5 @@ def get_geocode(city_name: str):
             latitude = geocode_data[0]['lat']
             longitude = geocode_data[0]['lon']
             result = (latitude, longitude)
+            print(result)
             return result

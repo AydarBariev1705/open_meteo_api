@@ -36,6 +36,14 @@ def weather_view(request: HttpRequest):
                     'geocode': geocode,
                     'city': city
                 }
+                context = {
+                    'form': form,
+                    'weather_data': weather_data,
+                }
+                return render(request,
+                              template_name='get_weather/index.html',
+                              context=context
+                              )
 
     last_viewed_city = request.session.get('last_viewed_city')
     if last_viewed_city:
