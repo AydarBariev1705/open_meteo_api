@@ -3,6 +3,6 @@ from .models import City
 
 
 @admin.register(City)
-class OrderAdmin(admin.ModelAdmin):
+class CityAdmin(admin.ModelAdmin):
     list_display = 'pk', 'views',
     ordering = 'pk',
